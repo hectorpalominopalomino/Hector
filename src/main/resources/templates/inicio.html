@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <div class="container-fluid" layout:fragment="page-content">
+                <br>
+                <h1>Biblioteca <i class="fa-solid fa-book-open-reader"></i></h1>
+                <hr>
+                <div class="d-flex justify-content-center mt-3">
+
+                    <div class="card" style="width: 18rem; margin-right: 1rem;">
+                        <img th:href="@{/img/uno.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Lectores</h5>
+                            <p class="card-text">Lista de Lectores</p>
+                            <a th:href="@{/lectores}" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img th:href="@{/img/dos.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Libros</h5>
+                            <p class="card-text">Lista de Libros</p>
+                            <a th:href="@{/libros}" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

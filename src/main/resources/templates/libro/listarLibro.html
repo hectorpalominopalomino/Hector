@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <div class="container-fluid" layout:fragment="page-content">
+                <br>
+                <h1>Lista de Libros <i class="fa-solid fa-book"></i></h1>
+                <hr><!-- comment -->
+                <a th:href="@{/libros/form}" class="btn btn-info">Add</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">ID</th>
+                            <th scope="col">TITULO</th>
+                            <th scope="col">EDICION</th>
+                            <th scope="col">AÑO</th>
+                            <th scope="col" colspan="2">ACCION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="libros :${libros}">
+
+                            <td th:text="${libros.id}"></td>
+                            <td th:text="${libros.titulo}"></td>
+                            <td th:text="${libros.edicion}"></td>
+                            <td th:text="${libros.Year}"></td>
+                            <td>
+                                <a th:href="@{/libros/edit/} + ${libros.id}" title="Editar Libro"><i class='fa-solid fa-pen-to-square text-warning me-3'></i></a>
+                                <a th:href="@{/libros/del/} + ${libros.id}" title="Eliminar Libro"><i class='fa-solid fa-trash-can text-danger me-3'></i></a>
+                            </td>
+                        </tr>                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

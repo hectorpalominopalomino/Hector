@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <div class="container-fluid" layout:fragment="page-content">
+                <br>
+                <h1>Prestamos <i class="fa-solid fa-book-open-reader"></i></h1>
+                <hr>
+                <div class="row">
+                    <form method="post" th:action="@{/prestamo/prestamoLector}" th:object="${prestamoDto}">
+                        <div class="col-md-5">
+                            <label for="lector">Lector: </label>
+                            <select 
+                                th:field="*{nombres}" 
+                                name="lector" 
+                                id="lector" 
+                                class="form-select mb-4" 
+                                required="">
+                                <option 
+                                    th:each="option : ${listaLectores}" 
+                                    th:value="${option.id}" 
+                                    th:text="${option.nombres}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="libro">Libro </label>
+                            <select 
+                                th:field="*{titulo}" 
+                                name="libro" 
+                                id="libro" 
+                                class="form-select mb-4" 
+                                required="">
+                                <option 
+                                    th:each="option : ${listaLibros}" 
+                                    th:value="${option.id}" 
+                                    th:text="${option.titulo}">
+                                </option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success align-items-center" onclick="guardarDatos()">
+                            <i class="fa-solid fa-floppy-disk"></i><strong class="me-2"> Guardar</strong>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
